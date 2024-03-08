@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sen">
+</head>
+<body>
+<div class="main-page-wrapper">
+    <header class="main-header">
+        <div class="container">
+            <a href="#">
+                <img src="{{ url_for('static', filename='img/union.png') }}" alt="Logo Union">
+            </a>
+            <a href="#">
+                <img src="{{ url_for('static', filename='img/Carbigdata.png') }}" alt="Logo CarBigData">
+            </a>
+        </div>
+    </header>
+    <section id="lista-imagens" class="background">
+        <div class="container">
+            <h2 style="color: #fff; text-align: center; margin-bottom: 60px;">Resultado da identificação de marca e cor</h2>
+            {% for data in pipeline_results %}
+                <div class="row img-group">
+                    <!-- <h2 style="color: #000; text-align: center; margin-bottom: 60px;">Foto boa</h2> -->
+                    <div class="row">
+                        <div class="col">
+                            <h4>MARCA:</h4>
+                            <img class="img" src="data:image;base64,{{ data['img_brand_clasified_64'] }}" alt="Imagem">
+                        </div>
+                        <div class="col">
+                            <h4>COR:</h4>
+                            <img class="img" src="data:image;base64,{{ data['img_color_classified_64'] }}" alt="Imagem">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <a href="https://agenciami.digital">
+                <img src="{{ url_for('static', filename='img/logo-mi.png') }}" alt="Logo Agência Mi">
+            </a>
+        </div>
+    </footer>
+</div>
+<script src="{{ url_for('static', filename='js/wheelzoom.js') }}"></script>
+<script>
+    wheelzoom(document.querySelectorAll('img'));
+</script>
+</body>
+</html>

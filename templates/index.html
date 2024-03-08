@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sen">
+</head>
+<body>
+<div class="main-page-wrapper">
+    <header class="main-header">
+        <div class="container">
+            <a href="https://unionit.com.br/" target="_blank">
+                <img src="{{ url_for('static', filename='img/union.png') }}" alt="Logo Union">
+            </a>
+            <a href="https://www.portoseguro.com.br/" target="_blank">
+                <img src="{{ url_for('static', filename='img/Carbigdata.png') }}" alt="Logo CarBigData">
+            </a>
+        </div>
+    </header>
+    <section class="background">
+        <div class="container">
+            <div style="margin-bottom: 90px;" class="row">
+                <div class="col">
+                    <img src="{{ url_for('static', filename='img/img-topo.png') }}" alt="Imagem da primeira seção">
+                </div>
+                <div class="col" style="text-align: justify;">
+                    <h2 style="color: #fff;">Transformando dados em inovação com soluções personalizadas de Inteligência
+                        Artificial</h2>
+                    <p style="color: #fff;">A missão da Union IT é disponibilizar uma solução personalizada que utilize
+                        Inteligência Artificial para gerar um impacto notável, assim, no âmbito da inteligência
+                        artificial, podemos oferecer uma gama diversificada de soluções, como análise preditiva para
+                        antecipar tendências e comportamentos do mercado, automação de processos para otimizar operações
+                        internas, e personalização de serviços com base em dados inteligentes, proporcionando uma
+                        abordagem abrangente e inovadora para atender às necessidades específicas da BigCarData no contexto
+                        da inteligência artificial.</p>
+                    <p style="color: #fff;">Além do processamento de imagem, classificação de marca e cor do veículo, a missão da Union IT consiste em
+                        oferecer uma solução personalizada que faça uso da Inteligência Artificial para proporcionar um
+                        impacto significativo, abrangendo desde a Experiência do Usuário até a otimização da eficiência
+                        operacional na gestão de sinistros.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div style="text-align: center;">
+                    <h3 style="color:#fff;margin-bottom: 40px;">Realize o upload das imagens que deseja otimizar.</h3>
+                    <form action="/" method="post" enctype="multipart/form-data" onsubmit="showOverlay();">
+                        <input type="file" name="file" multiple>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <a href="https://agenciami.digital">
+                <img src="{{ url_for('static', filename='img/logo-mi.png') }}" alt="Logo Agência Mi">
+            </a>
+        </div>
+    </footer>
+</div>
+
+<div id="overlay">
+    <div class="spinner"></div>
+    <p>Processando imagens...<br>
+        (Isso pode levar alguns minutos)
+    </p>
+</div>
+<script type="text/javascript">
+    // Função para mostrar o overlay
+    function showOverlay() {
+        document.getElementById('overlay').style.display = 'block';
+    }
+</script>
+</body>
+</html>
